@@ -1,0 +1,179 @@
+App.js
+
+
+//import { StatusBar } from 'expo-status-bar';
+// import { Platform, StyleSheet, ImageBackground, KeyboardAvoidingView, Text, View } from 'react-native';
+// import searchInput from './components/searchInput';
+// import getImageWeather from './utils/getImageWeather';
+
+// export default function App() {
+//   return (
+
+//     handleUpdateLocation = async city => {
+//       if(!city) return;
+//       this.setState({ loading: true}, async ()=>{
+//         try{
+//           const locationId = await fetchLocationId(city);
+//           const {location, weather, temperature} = await fetchWeather(locationId, weather, temperature);
+//         }
+//       })
+//     }
+//     <KeyboardAvoidingView style={styles.container0} behavior="padding">
+//       <ImageBackground 
+//       source={getImageWeather(weather)}
+//       style={styles.imageContainer}
+//       imageStyle={styles.image}
+//       >
+
+//         <View style={styles.container}>
+//           <Text style={[styles.textStyle, styles.largeText]}>Shanghai</Text>
+//           <Text style={[styles.smallText, styles.textStyle]}>Light Rain</Text>
+//           <Text style={[styles.textStyle, styles.smallText]}>23 degrees</Text>
+          
+//           <searchInput placeholder="Search city" onSubmit={this.handleUpdateLocation}/>
+//         </View>
+//       </ImageBackground>
+//     </KeyboardAvoidingView>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+    
+//   },
+//   textStyle: {
+//     textAlign: 'center',
+//     fontFamily: Platform.OS = 'ios' ? 'AvenirNext-Regular' : 'Roboto',
+//   },
+
+//   largeText: {
+//     fontSize: 45,
+//   },
+
+//   smallText: {
+//     fontSize: 20,
+//   },
+
+//   textInput: {
+//     backgroundColor: 'brown',
+//     color: 'black',
+//     height: 45,
+//     width: 300,
+//     marginTop: 25,
+//     marginHorizontal: 20,
+//     paddingHorizontal: 10,
+//     alignSelf: 'center',
+//   },
+
+//   imageContainer: {
+//     flex: 1,
+//   },
+
+//   image: {
+//     flex:1,
+//     width: null,
+//     height: null,
+//     resizeMode: 'cover'
+//   },
+
+// }); 
+
+
+
+
+searchInput.js
+
+// import React from "react";
+// import PropTypes from 'prop-types';
+// import { StyleSheet, View, TextInput} from 'react-native';
+// export default class searchInput extends React.Component{
+    
+//     static propTypes={
+//         onSubmit : PropTypes.func.isRequired,
+//         placeholder: PropTypes.string,
+//     };
+
+//     static defaultProps = {
+//         placeholder : ' ',
+//     };
+
+//     state={
+//         text: '',
+//     };
+
+//     handleChangeText = text => {
+//         this.setState({text});
+//     }
+    
+//     handleSubmitEditing = () =>{
+//         const {onSubmit} = this.props;
+//         const {text} = this.state;
+
+//         if(!text) return;
+//         onSubmit(text);
+//         this.setState({text: ''});
+//     }
+//     render(){
+//         const {placeholder} = this.props;
+//         const {text} = this.state;
+//         return( 
+//     <View styels={styles.container}>
+
+//         <TextInput
+//             autoCorrect = {false}
+//             placeholder= "Fetch the city"
+//             placeholderTextColor= "Red"
+//             style = {styles.textInput}
+//             clearButtonMode= "always"
+//             onChangeText= {this.handleChangeText}
+//             onSubmitEditing = {this.handleSubmitEditing}
+//         />
+//     </View>
+//         );
+//     }
+// }
+
+// const styles = StyleSheet.create({
+//     container: {
+//         height: 40,
+//         width: 300,
+//         backgroundColor: 'brown',
+//         color: 'black',
+//         height: 45,
+//         width: 300,
+//         marginTop: 25,
+//         marginHorizontal: 20,
+//         paddingHorizontal: 10,
+//         alignSelf: 'center',
+//         borderRadius: 5,
+//     },
+
+//     textInput: {
+//         flex: 1,
+//         color: 'white',
+//     },
+// })
+
+
+
+
+getImageWeather.js
+
+
+const images = {
+    Clear: require('../assets/clear.png'),
+    Hail: require('../assets/hail.png'),
+    'Heavy Cloud': require('../assets/heavy-cloud.png'),
+    'Light Cloud': require('../assets/light-cloud.png'),
+    'Heavy Rain': require('../assets/heavy-rain.png'),
+    'Light Rain': require('../assets/light-rain.png'),
+    Showers : require('../assets/showers.png'),
+    Snow: require('../assets/snow.png'),
+    Thunder: require('../assets/thunder.png')
+};
+
+export default weather => images[weather];
